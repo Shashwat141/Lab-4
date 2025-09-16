@@ -1,0 +1,24 @@
+# Data processing parameters
+data:
+  test_size: 0.2
+  random_state: 42
+
+# Model parameters
+model:
+  type: random_forest  # Options: random_forest, logistic_regression, svm
+  n_estimators: 100
+  max_depth: 10
+  random_state: 42
+  
+# Alternative model configurations (uncomment to use):
+# model:
+#   type: logistic_regression
+#   C: 1.0
+#   random_state: 42
+#   max_iter: 1000
+
+# model:
+#   type: svm
+#   C: 1.0
+#   kernel: rbf
+#   random_state: 42

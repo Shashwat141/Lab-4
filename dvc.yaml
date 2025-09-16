@@ -1,0 +1,38 @@
+stages:
+  data_processing:
+    cmd: python src/data.py
+    params:
+    - data.test_size
+    - data.random_state
+    outs:
+    - data/X_train.npy
+    - data/X_test.npy
+    - data/y_train.npy
+    - data/y_test.npy
+    - data/scaler.pkl
+    - data/metadata.json
+
+  train:
+    cmd: python src/train.py
+    deps:
+    - data/X_train.npy
+    - data/y_train.npy
+    - src/train.py
+    params:
+    - model
+    outs:
+    - models/model.pkl
+    - models/model_metadata.json
+
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - data/X_test.npy
+    - data/y_test.npy
+    - models/model.pkl
+    - src/evaluate.py
+    outs:
+    - metrics/detailed_metrics.json
+    metrics:
+    - metrics.json:
+        cache: false
