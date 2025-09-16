@@ -50,17 +50,17 @@ stages:
       params.yaml:
         model:
           type: random_forest
-          n_estimators: 120
+          n_estimators: 125
           max_depth: 12
           random_state: 42
     outs:
     - path: models/model.pkl
       hash: md5
-      md5: 662d1884219c8a48007087e1bcd95fc3
-      size: 185713
+      md5: 366671bf7ae7f5dc5ddc03fe8c79faca
+      size: 193297
     - path: models/model_metadata.json
       hash: md5
-      md5: cd6ad24eb6a51e05d3327b0451c72e58
+      md5: 8d60c73a0f60e997b862e2235d996669
       size: 212
   evaluate:
     cmd: python src/evaluate.py
@@ -75,8 +75,8 @@ stages:
       size: 308
     - path: models/model.pkl
       hash: md5
-      md5: 662d1884219c8a48007087e1bcd95fc3
-      size: 185713
+      md5: 366671bf7ae7f5dc5ddc03fe8c79faca
+      size: 193297
     - path: src/evaluate.py
       hash: md5
       md5: a68a26551854710940f47fe5274ac79a
