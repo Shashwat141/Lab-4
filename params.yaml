@@ -1,13 +1,13 @@
 # Data processing parameters
 data:
-  test_size: 0.2
+  test_size: 0.3
   random_state: 42
 
 # Model parameters
 model:
   type: random_forest  # Options: random_forest, logistic_regression, svm
-  n_estimators: 100
-  max_depth: 10
+  n_estimators: 120
+  max_depth: 12
   random_state: 42
   
 # Alternative model configurations (uncomment to use):
