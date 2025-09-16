@@ -107,13 +107,13 @@ def main():
     # Save processed data
     save_processed_data(X_train, X_test, y_train, y_test, scaler)
     
-    # Save metadata
+    # Save metadata - ensure all values are JSON serializable
     metadata = {
-        'feature_names': feature_names.tolist(),
-        'target_names': target_names.tolist(),
-        'n_samples_train': len(X_train),
-        'n_samples_test': len(X_test),
-        'n_features': X_train.shape[1]
+        'feature_names': feature_names,
+        'target_names': target_names.tolist(),  # Convert numpy array to list
+        'n_samples_train': int(len(X_train)),   # Convert numpy int to Python int
+        'n_samples_test': int(len(X_test)),     # Convert numpy int to Python int
+        'n_features': int(X_train.shape[1])     # Convert numpy int to Python int
     }
     
     with open('data/metadata.json', 'w') as f:
