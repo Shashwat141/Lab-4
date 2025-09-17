@@ -6,8 +6,8 @@ data:
 # Model parameters
 model:
   type: random_forest  # Options: random_forest, logistic_regression, svm
-  n_estimators: 125
-  max_depth: 12
+  n_estimators: 100
+  max_depth: 13
   random_state: 42
   
 # Alternative model configurations (uncomment to use):
