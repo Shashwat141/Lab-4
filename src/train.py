@@ -75,9 +75,9 @@ def log_experiment_to_mlflow(model, params, X_train, y_train):
     
     # --- Explicitly set the MLflow tracking URI ---
     # This ensures the script saves data to the local 'mlruns' folder
-    mlflow.set_tracking_uri(pathlib.Path("mlruns").resolve().as_uri())
+    '''mlflow.set_tracking_uri(pathlib.Path("mlruns").resolve().as_uri())
 
-    mlflow.set_experiment("Iris Classification")
+    mlflow.set_experiment("Iris Classification")'''
 
     with mlflow.start_run():
         mlflow.log_params(params['model'])
