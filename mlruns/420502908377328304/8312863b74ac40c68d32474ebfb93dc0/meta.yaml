@@ -1,0 +1,14 @@
+artifact_uri: file:///S:/MLOPS%20Labs/Lab%204/mlruns/420502908377328304/8312863b74ac40c68d32474ebfb93dc0/artifacts
+end_time: 1758129780976
+entry_point_name: ''
+experiment_id: '420502908377328304'
+lifecycle_stage: active
+run_id: 8312863b74ac40c68d32474ebfb93dc0
+run_name: bemused-boar-525
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758129772989
+status: 3
+tags: []
+user_id: Shash

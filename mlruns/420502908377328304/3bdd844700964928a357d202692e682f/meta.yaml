@@ -1,0 +1,14 @@
+artifact_uri: file:///S:/MLOPS%20Labs/Lab%204/mlruns/420502908377328304/3bdd844700964928a357d202692e682f/artifacts
+end_time: 1758130468281
+entry_point_name: ''
+experiment_id: '420502908377328304'
+lifecycle_stage: active
+run_id: 3bdd844700964928a357d202692e682f
+run_name: rare-hog-643
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758130460303
+status: 3
+tags: []
+user_id: Shash

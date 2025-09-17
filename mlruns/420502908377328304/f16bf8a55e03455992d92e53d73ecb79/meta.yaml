@@ -1,0 +1,14 @@
+artifact_uri: file:///S:/MLOPS%20Labs/Lab%204/mlruns/420502908377328304/f16bf8a55e03455992d92e53d73ecb79/artifacts
+end_time: 1758129103514
+entry_point_name: ''
+experiment_id: '420502908377328304'
+lifecycle_stage: active
+run_id: f16bf8a55e03455992d92e53d73ecb79
+run_name: powerful-wren-707
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758129091445
+status: 3
+tags: []
+user_id: Shash

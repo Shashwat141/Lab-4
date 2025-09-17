@@ -1,0 +1,14 @@
+artifact_uri: file:///S:/MLOPS%20Labs/Lab%204/mlruns/420502908377328304/32041e4ecb7e404082ec7e1f3e210263/artifacts
+end_time: 1758130339787
+entry_point_name: ''
+experiment_id: '420502908377328304'
+lifecycle_stage: active
+run_id: 32041e4ecb7e404082ec7e1f3e210263
+run_name: melodic-worm-709
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758130332059
+status: 3
+tags: []
+user_id: Shash

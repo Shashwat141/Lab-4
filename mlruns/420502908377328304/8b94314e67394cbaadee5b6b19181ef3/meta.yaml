@@ -1,0 +1,14 @@
+artifact_uri: file:///S:/MLOPS%20Labs/Lab%204/mlruns/420502908377328304/8b94314e67394cbaadee5b6b19181ef3/artifacts
+end_time: 1758130759368
+entry_point_name: ''
+experiment_id: '420502908377328304'
+lifecycle_stage: active
+run_id: 8b94314e67394cbaadee5b6b19181ef3
+run_name: awesome-rook-889
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758130751568
+status: 3
+tags: []
+user_id: Shash

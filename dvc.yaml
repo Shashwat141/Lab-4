@@ -22,7 +22,6 @@ stages:
     - model
     outs:
     - models/model.pkl
-    - models/model_metadata.json
 
   evaluate:
     cmd: python src/evaluate.py
