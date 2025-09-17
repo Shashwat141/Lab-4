@@ -24,6 +24,10 @@ jobs:
         pip install -r requirements.txt
         pip install dvc[all]
         
+    # Add this step to pull data from DVC remote
+    - name: Pull DVC data
+      run: dvc pull
+      
     - name: Run DVC pipeline
       run: dvc repro
       
