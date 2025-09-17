@@ -8,16 +8,15 @@ import numpy as np
 import joblib
 import yaml
 import json
-import os
+import os # Make sure os is imported
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+from sklearn.metrics import accuracy_score, f1_score
 
-# --- Import MLflow and Pathlib ---
+# --- Import MLflow ---
 import mlflow
 import mlflow.sklearn
-import pathlib # Add this import
 
 
 def load_params():
@@ -32,7 +31,6 @@ def load_training_data():
     print("Loading training data...")
     X_train = np.load('data/X_train.npy')
     y_train = np.load('data/y_train.npy')
-    print(f"Training data loaded: {X_train.shape[0]} samples")
     return X_train, y_train
 
 
@@ -45,18 +43,14 @@ def create_model(model_params):
             max_depth=model_params['max_depth'],
             random_state=model_params['random_state']
         )
-    # ... (other model types are the same)
-    else:
+    else: # Other model types omitted for brevity
         raise ValueError(f"Unsupported model type: {model_type}")
-    print(f"Created {model_type} model.")
     return model
 
 
 def train_model(model, X_train, y_train):
     """Train the model."""
-    print("Training model...")
     model.fit(X_train, y_train)
-    print("Training completed.")
     return model
 
 
@@ -67,17 +61,12 @@ def save_model(model, model_path='models/model.pkl'):
     print(f"Model saved to {model_path}")
 
 
-def log_experiment_to_mlflow(model, params, X_train, y_train):
+def log_experiment_to_mlflow(model, params):
     """
     Load test data, evaluate the model, and log everything to MLflow.
     """
     print("Starting MLflow logging...")
-    
-    # --- Explicitly set the MLflow tracking URI ---
-    # This ensures the script saves data to the local 'mlruns' folder
-    '''mlflow.set_tracking_uri(pathlib.Path("mlruns").resolve().as_uri())
-
-    mlflow.set_experiment("Iris Classification")'''
+    mlflow.set_experiment("Iris Classification")
 
     with mlflow.start_run():
         mlflow.log_params(params['model'])
@@ -94,8 +83,13 @@ def log_experiment_to_mlflow(model, params, X_train, y_train):
         mlflow.log_metrics(metrics)
         print("Logged evaluation metrics to MLflow.")
 
-        mlflow.sklearn.log_model(model, "model")
-        print("Logged model artifact to MLflow.")
+        # --- Conditional Artifact Logging ---
+        # Only log the model artifact if not running in a CI environment
+        if os.getenv("CI") != "true":
+            mlflow.sklearn.log_model(model, "model")
+            print("Logged model artifact to MLflow.")
+        else:
+            print("Skipping model artifact logging in CI environment.")
         
         print("MLflow logging completed successfully!")
 
@@ -108,7 +102,7 @@ def main():
     model = create_model(params['model'])
     trained_model = train_model(model, X_train, y_train)
     save_model(trained_model)
-    log_experiment_to_mlflow(trained_model, params, X_train, y_train)
+    log_experiment_to_mlflow(trained_model, params)
     print("Model training pipeline completed successfully!")
 
 
